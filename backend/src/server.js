@@ -6,9 +6,11 @@ const path = require("path");
 const noteRoutes = require("./routes/noteRoutes");
 const connectDB = require("./config/db");
 const rateLimiter = require("./middleware/rateLimiter");
-const __dirname = path.resolve();
+const dns = require("dns");
 
 dotenv.config();
+
+dns.setServers(['8.8.8.8'], ['8.8.4.4'])
 
 const app = express();
 const PORT = process.env.PORT || 5001;
